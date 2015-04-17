@@ -58,6 +58,15 @@
     // Drawing code
     [super drawRect:rect];
     
+    //draw central bar over it
+    CGFloat cbxbegin = self.frame.size.width * 0.2;
+    CGFloat cbwidth = self.frame.size.width * 0.6;
+    for (int y = 0; y < self.frame.size.height; y++) {
+        [[UIColor colorWithHue:(y/self.frame.size.height) saturation:1.0 brightness:1.0 alpha:1.0] set];
+        CGRect temp = CGRectMake(cbxbegin, y, cbwidth, 1.0);
+        UIRectFill(temp);
+    }
+    
     //draw wings
     [[UIColor blackColor] set];
     CGFloat tempYPlace = self.currentSelectionY;
@@ -68,15 +77,6 @@
     }
     CGRect temp = CGRectMake(0.0, tempYPlace, self.frame.size.width, 1.0);
     UIRectFill(temp);
-    
-    //draw central bar over it
-    CGFloat cbxbegin = self.frame.size.width * 0.2;
-    CGFloat cbwidth = self.frame.size.width * 0.6;
-    for (int y = 0; y < self.frame.size.height; y++) {
-        [[UIColor colorWithHue:(y/self.frame.size.height) saturation:1.0 brightness:1.0 alpha:1.0] set];
-        CGRect temp = CGRectMake(cbxbegin, y, cbwidth, 1.0);
-        UIRectFill(temp);
-    }
 }
 
 /*!
